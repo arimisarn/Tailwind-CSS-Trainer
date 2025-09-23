@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import logo from "./assets/tailwind-css-trainerbg-white.png";
-
+import logo from "../assets/tailwind-css-trainerbg-white.png"
 interface WelcomeModalProps {
   onSubmit: (name: string) => void;
 }
