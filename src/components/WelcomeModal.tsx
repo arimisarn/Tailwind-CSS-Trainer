@@ -21,7 +21,7 @@ export const WelcomeModal: React.FC<WelcomeModalProps> = ({ onSubmit }) => {
         className="bg-white rounded-2xl p-8 max-w-sm w-full text-center shadow-xl"
       >
         <div className="flex items-center justify-center">
-        <img className="w-40 h-40" src={logo} alt="" />
+        <img className="w-32 h-32" src={logo} alt="" />
 
         </div>
         <h2 className="text-2xl font-bold mb-4 text-blue-700">
