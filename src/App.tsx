@@ -8,6 +8,7 @@ import { Preview } from "./components/Preview";
 import { SuccessMessage } from "./components/SuccessMessage";
 import { FailureMessage } from "./components/FailureMessage";
 import { WelcomeModal } from "./components/WelcomeModal";
+import logo from "./assets/tailwind-css-trainerbg-white.png";
 
 type GameState = "menu" | "exercise" | "success" | "failure";
 
@@ -130,6 +131,14 @@ function App() {
     >
       <div className="max-w-2xl w-full">
         <div className="text-center mb-8">
+          <motion.div
+            initial={{ scale: 0.8 }}
+            animate={{ scale: 1 }}
+            transition={{ type: "spring", stiffness: 300 }}
+            className="flex items-center justify-center mx-auto mb-6"
+          >
+            <img className="w-40 h-40" src={logo} alt="" />
+          </motion.div>
           <motion.div
             initial={{ scale: 0.8 }}
             animate={{ scale: 1 }}
