@@ -17,12 +17,11 @@ export const WelcomeModal: React.FC<WelcomeModalProps> = ({ onSubmit }) => {
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50">
-      <img className="w-40 h-40" src={logo} alt="" />
-
       <form
         onSubmit={handleSubmit}
         className="bg-white rounded-2xl p-8 max-w-sm w-full text-center shadow-xl"
       >
+        <img className="w-40 h-40" src={logo} alt="" />
         <h2 className="text-2xl font-bold mb-4 text-blue-700">
           Bienvenue sur Tailwind Training !
         </h2>
