@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Play, BookOpen, Target } from "lucide-react";
+import { Play, BookOpen, Target, ArrowLeft, ArrowRight } from "lucide-react";
 import { exercises } from "./types/Exercices";
 import { Timers } from "./components/Timers";
 import { CodeEditor } from "./components/CodeEditor";
@@ -29,6 +29,13 @@ function App() {
   const [isWaitingForSuccess, setIsWaitingForSuccess] = useState(false);
   const [userName, setUserName] = useState<string | null>(null);
 
+  // Gestion des exercices débloqués
+  const [unlockedExercises, setUnlockedExercises] = useState<number[]>(() => {
+    const stored = localStorage.getItem("tailwind-unlocked-exercises");
+    if (stored) return JSON.parse(stored);
+    return [0];
+  });
+
   const currentExercise = exercises[currentExerciseIndex];
 
   // Sauvegarde de l'index courant et du score à chaque changement
@@ -41,6 +48,12 @@ function App() {
   useEffect(() => {
     localStorage.setItem("tailwind-total-score", String(totalScore));
   }, [totalScore]);
+  useEffect(() => {
+    localStorage.setItem(
+      "tailwind-unlocked-exercises",
+      JSON.stringify(unlockedExercises)
+    );
+  }, [unlockedExercises]);
 
   useEffect(() => {
     const storedName = localStorage.getItem("tailwind-user-name");
@@ -95,6 +108,17 @@ function App() {
     }
   }, [userCode, currentExercise.solution, gameState, isWaitingForSuccess]);
 
+  // Débloquer l'exercice suivant après succès
+  useEffect(() => {
+    if (
+      gameState === "success" &&
+      !unlockedExercises.includes(currentExerciseIndex + 1) &&
+      currentExerciseIndex + 1 < exercises.length
+    ) {
+      setUnlockedExercises((prev) => [...prev, currentExerciseIndex + 1]);
+    }
+  }, [gameState, currentExerciseIndex, unlockedExercises]);
+
   const startExercise = () => {
     setGameState("exercise");
     setTimeLeft(currentExercise.timer);
@@ -113,6 +137,13 @@ function App() {
       );
       setCurrentExerciseIndex(0);
       setTotalScore(0);
+      setGameState("menu");
+    }
+  };
+
+  const prevExercise = () => {
+    if (currentExerciseIndex > 0) {
+      setCurrentExerciseIndex((prev) => prev - 1);
       setGameState("menu");
     }
   };
@@ -208,15 +239,52 @@ function App() {
               <span>Points: +10</span>
             </div>
           </div>
-          <motion.button
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            onClick={startExercise}
-            className="w-full bg-blue-500 text-white py-4 px-6 rounded-xl font-semibold text-lg hover:bg-blue-600 transition-colors flex items-center justify-center gap-3"
-          >
-            <Play className="w-5 h-5" />
-            Commencer l'exercice
-          </motion.button>
+          <div className="flex flex-col md:flex-row gap-4">
+            <motion.button
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              onClick={startExercise}
+              className="flex-1 bg-blue-500 text-white py-4 px-6 rounded-xl font-semibold text-lg hover:bg-blue-600 transition-colors flex items-center justify-center gap-3"
+            >
+              <Play className="w-5 h-5" />
+              Commencer
+            </motion.button>
+            <motion.button
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              onClick={prevExercise}
+              disabled={currentExerciseIndex === 0}
+              className={`flex-1 bg-gray-200 text-gray-700 py-4 px-6 rounded-xl font-semibold text-lg transition-colors flex items-center justify-center gap-3 ${
+                currentExerciseIndex === 0
+                  ? "opacity-50 cursor-not-allowed"
+                  : "hover:bg-gray-300"
+              }`}
+            >
+              <ArrowLeft className="w-5 h-5" />
+              Précédent
+            </motion.button>
+            <motion.button
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              onClick={() => {
+                setCurrentExerciseIndex((prev) => prev + 1);
+                setGameState("menu");
+              }}
+              disabled={
+                currentExerciseIndex >= exercises.length - 1 ||
+                !unlockedExercises.includes(currentExerciseIndex + 1)
+              }
+              className={`flex-1 bg-green-500 text-white py-4 px-6 rounded-xl font-semibold text-lg transition-colors flex items-center justify-center gap-3 ${
+                currentExerciseIndex >= exercises.length - 1 ||
+                !unlockedExercises.includes(currentExerciseIndex + 1)
+                  ? "opacity-50 cursor-not-allowed"
+                  : "hover:bg-green-600"
+              }`}
+            >
+              <ArrowRight className="w-5 h-5" />
+              Suivant
+            </motion.button>
+          </div>
         </motion.div>
         <div className="text-center text-sm text-gray-500">
           Exercice {currentExerciseIndex + 1} sur {exercises.length}
@@ -286,12 +354,10 @@ function App() {
     </div>
   );
 
-  // ...existing code...
   return (
     <div className="min-h-screen flex flex-col">
       {/* Contenu principal */}
       <div className="flex-1 flex flex-col justify-start p-0 overflow-auto">
-        {/* Enlève la min-h-screen du renderMenu pour éviter l'espace en haut */}
         {!userName && <WelcomeModal onSubmit={handleNameSubmit} />}
         <AnimatePresence mode="wait">
           {gameState === "menu" && (
@@ -349,7 +415,6 @@ function App() {
       </footer>
     </div>
   );
-  // ...existing code...
 }
 
 export default App;
