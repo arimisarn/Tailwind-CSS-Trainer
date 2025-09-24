@@ -39,7 +39,7 @@ export const exercises: Exercise[] = [
     description:
       "Affiche les éléments en flexbox, aligne-les à droite et centre verticalement. Mets le lien actif en gras et applique une couleur bleu indigo nuance 600 au survol.",
     timer: 90,
-    solution: "flex justify-end items-center hover:text-indigo-600 font-bold",
+    solution: "flex justify-end items-center font-bold hover:text-indigo-600",
   },
   {
     id: 5,
