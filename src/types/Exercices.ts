@@ -31,7 +31,7 @@ export const exercises: Exercise[] = [
       "Crée une grille de trois colonnes avec un espacement de 1rem entre les éléments, ajoute un padding de 0.5rem, rends les coins arrondis, et au survol applique un fond gris clair nuance 200. Sur mobile, la grille devient une seule colonne.",
     timer: 90,
     solution:
-      "grid grid-cols-3 gap-4 md:grid-cols-1 p-2 rounded hover:bg-gray-200",
+      "grid grid-cols-3 gap-4 p-2 rounded hover:bg-gray-200 md:grid-cols-1",
   },
   {
     id: 4,
