@@ -19,10 +19,10 @@ export const exercises: Exercise[] = [
     id: 2,
     title: "Aligner des cartes",
     description:
-      "Crée trois cartes côte à côte en utilisant flexbox, centrées horizontalement et verticalement, avec un fond blanc, des coins arrondis, une ombre légère, un espacement horizontal de 1rem et un padding de 1rem. Sur mobile, les cartes doivent passer en colonne.",
+      "Crée trois cartes côte à côte en utilisant flexbox, centrées horizontalement et verticalement, avec un fond blanc, des coins arrondis, une ombre légère, un espacement (gap) de 1rem et un padding de 1rem. Les cartes descendent en bas si il n'y a plus d'espace.",
     timer: 90,
     solution:
-      "flex justify-center items-center flex-wrap gap-4 p-4 bg-white rounded shadow",
+      "flex justify-center items-center bg-white rounded shadow gap-4 p-4 flex-wrap",
   },
   {
     id: 3,
