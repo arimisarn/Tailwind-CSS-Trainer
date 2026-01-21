@@ -57,7 +57,7 @@ export const exercises: Exercise[] = [
     timer: 90,
     solution:
       "flex justify-center items-center gap-4 p-4 bg-white rounded shadow",
-  }, 
+  },
   {
     id: 7,
     title: "Landing page Hero",
@@ -79,7 +79,7 @@ export const exercises: Exercise[] = [
     id: 9,
     title: "Section testimonial",
     description:
-      "Utiliser une grille. Passer à partir d écran moyen. Ajouter un gap de 1 rem entre les éléments. Ajouter un padding interne de 1 rem. Mettre un fond blanc. Arrondir la section. Ajouter une ombre. Changer le fond en gris de nuance 100 au survol.",
+      "Utiliser une grille. Passer à une colonne à partir d'écran moyen. Ajouter un gap de 1 rem entre les éléments. Ajouter un padding interne de 1 rem. Mettre un fond blanc. Arrondir la section. Ajouter une ombre. Changer le fond en gris de nuance 100 au survol.",
     timer: 90,
     solution:
       "grid md:grid-cols-1 gap-4 p-4 bg-white rounded shadow hover:bg-gray-100",
@@ -88,7 +88,7 @@ export const exercises: Exercise[] = [
     id: 10,
     title: "Mini dashboard",
     description:
-      "Afficher la structure en flexbox. Prendre toute la largeur (width). Ajouter un padding interne de 1 rem. Mettre un fond gris de nuance 100. Arrondir. Ajouter une ombre. Changer le fond en gris de nuance 200 au survol.",
+      "Afficher la structure en flexbox. Prendre toute la largeur. Ajouter un padding interne de 1 rem. Mettre un fond gris de nuance 100. Arrondir. Ajouter une ombre. Changer le fond en gris de nuance 200 au survol.",
     timer: 120,
     solution: "flex w-full p-4 bg-gray-100 rounded shadow hover:bg-gray-200",
   },
