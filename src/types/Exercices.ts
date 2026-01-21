@@ -79,7 +79,7 @@ export const exercises: Exercise[] = [
     id: 9,
     title: "Section testimonial",
     description:
-      "Utiliser une grille. Passer à une colonne sur mobile. Ajouter un gap de 1 rem entre les éléments. Ajouter un padding interne de 1 rem. Mettre un fond blanc. Arrondir la section. Ajouter une ombre. Changer le fond en gris de nuance 100 au survol.",
+      "Utiliser une grille. Passer à partir d écran moyen. Ajouter un gap de 1 rem entre les éléments. Ajouter un padding interne de 1 rem. Mettre un fond blanc. Arrondir la section. Ajouter une ombre. Changer le fond en gris de nuance 100 au survol.",
     timer: 90,
     solution:
       "grid md:grid-cols-1 gap-4 p-4 bg-white rounded shadow hover:bg-gray-100",
