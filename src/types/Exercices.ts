@@ -57,7 +57,7 @@ export const exercises: Exercise[] = [
     timer: 90,
     solution:
       "flex justify-center items-center gap-4 p-4 bg-white rounded shadow",
-  },
+  }, 
   {
     id: 7,
     title: "Landing page Hero",
