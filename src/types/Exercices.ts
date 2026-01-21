@@ -88,7 +88,7 @@ export const exercises: Exercise[] = [
     id: 10,
     title: "Mini dashboard",
     description:
-      "Afficher la structure en flexbox. Prendre toute la largeur. Ajouter un padding interne de 1 rem. Mettre un fond gris de nuance 100. Arrondir. Ajouter une ombre. Changer le fond en gris de nuance 200 au survol.",
+      "Afficher la structure en flexbox. Prendre toute la largeur (width). Ajouter un padding interne de 1 rem. Mettre un fond gris de nuance 100. Arrondir. Ajouter une ombre. Changer le fond en gris de nuance 200 au survol.",
     timer: 120,
     solution: "flex w-full p-4 bg-gray-100 rounded shadow hover:bg-gray-200",
   },
