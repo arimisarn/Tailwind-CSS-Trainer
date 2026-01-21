@@ -1,7 +1,7 @@
 export interface Exercise {
   id: number;
   title: string;
-  description: string; // consignes en phrases claires
+  description: string; // consignes avec type (gap, padding, couleur, nuance)
   timer: number; // en secondes
   solution: string; // classes Tailwind exactes
 }
@@ -11,7 +11,7 @@ export const exercises: Exercise[] = [
     id: 1,
     title: "Bouton hover",
     description:
-      "Ajoute un fond bleu indigo nuance 500, mets le texte en blanc, rends les bords arrondis, et au survol le bouton devient bleu indigo nuance 700.",
+      "Appliquer un fond indigo de nuance 500. Mettre le texte en blanc. Arrondir les coins. Changer le fond en indigo de nuance 700 au passage de la souris.",
     timer: 60,
     solution: "bg-indigo-500 text-white rounded hover:bg-indigo-700",
   },
@@ -19,23 +19,25 @@ export const exercises: Exercise[] = [
     id: 2,
     title: "Aligner des cartes",
     description:
-      "Affiche les éléments en flexbox, centre-les horizontalement et verticalement, mets un fond blanc, rends les coins arrondis, ajoute une ombre légère, mets un espacement horizontal (gap) de 1rem entre les éléments, ajoute un padding de 1rem et permets le retour à la ligne si besoin.",
+      "Afficher les éléments en flexbox. Centrer horizontalement. Centrer verticalement. Autoriser le retour à la ligne. Ajouter un gap de 1 rem entre les cartes. Ajouter un padding interne de 1 rem. Mettre un fond blanc. Arrondir les cartes. Ajouter une ombre.",
     timer: 90,
-    solution: "flex justify-center items-center bg-white rounded shadow gap-4 p-4 flex-wrap",
+    solution:
+      "flex justify-center items-center flex-wrap gap-4 p-4 bg-white rounded shadow",
   },
   {
     id: 3,
     title: "Galerie simple",
     description:
-      "Crée une grille de trois colonnes avec un espacement de 1rem entre les éléments, ajoute un padding de 0.5rem, rends les coins arrondis, et au survol applique un fond gris clair nuance 200. Sur mobile, la grille devient une seule colonne.",
+      "Utiliser une grille. Afficher trois colonnes. Ajouter un gap de 1 rem entre les éléments. Passer à une colonne sur écran moyen. Ajouter un padding interne de 0.5 rem. Arrondir les éléments. Changer le fond en gris de nuance 200 au survol.",
     timer: 90,
-    solution: "grid grid-cols-1 md:grid-cols-3 gap-4 p-2 rounded hover:bg-gray-200",
+    solution:
+      "grid grid-cols-3 gap-4 md:grid-cols-1 p-2 rounded hover:bg-gray-200",
   },
   {
     id: 4,
     title: "Navigation simple",
     description:
-      "Affiche les éléments en flexbox, aligne-les à droite et centre verticalement. Mets le lien actif en gras et applique une couleur bleu indigo nuance 600 au survol.",
+      "Afficher les liens en flexbox. Aligner les liens à droite. Centrer verticalement. Changer la couleur du texte en indigo de nuance 600 au survol. Mettre le texte en gras.",
     timer: 90,
     solution: "flex justify-end items-center hover:text-indigo-600 font-bold",
   },
@@ -43,31 +45,33 @@ export const exercises: Exercise[] = [
     id: 5,
     title: "Formulaire stylisé",
     description:
-      "Ajoute un padding de 0.5rem, une marge de 0.5rem, mets un fond bleu indigo nuance 500, rends les coins arrondis, applique une couleur de texte blanc, et au survol le bouton devient bleu indigo nuance 700.",
+      "Ajouter un padding interne de 0.5 rem. Ajouter une marge externe de 0.5 rem. Mettre un fond blanc. Arrondir les coins. Changer le fond en indigo de nuance 700 au survol. Mettre le texte en blanc.",
     timer: 90,
-    solution: "p-2 m-2 bg-indigo-500 rounded text-white hover:bg-indigo-700",
+    solution: "p-2 m-2 bg-white rounded hover:bg-indigo-700 text-white",
   },
   {
     id: 6,
     title: "Section features",
     description:
-      "Affiche les éléments en flexbox, centre-les horizontalement et verticalement, ajoute un espacement horizontal (gap) de 1rem, mets un padding de 1rem, applique un fond blanc, rends les coins arrondis et ajoute une ombre légère.",
+      "Afficher les cartes en flexbox. Centrer horizontalement. Centrer verticalement. Ajouter un gap de 1 rem entre les cartes. Ajouter un padding interne de 1 rem. Mettre un fond blanc. Arrondir les cartes. Ajouter une ombre.",
     timer: 90,
-    solution: "flex justify-center items-center gap-4 p-4 bg-white rounded shadow",
+    solution:
+      "flex justify-center items-center gap-4 p-4 bg-white rounded shadow",
   },
   {
     id: 7,
     title: "Landing page Hero",
     description:
-      "Affiche les éléments en flexbox, en colonne sur mobile, centre-les verticalement, aligne le texte à gauche, ajoute un padding de 1rem, applique un fond gris très foncé nuance 900, mets le texte en blanc, rends les coins arrondis, et au survol applique un fond bleu indigo nuance 700.",
+      "Afficher les éléments en flexbox. Passer en colonne à partir d’écran moyen. Centrer verticalement. Aligner le texte à gauche. Ajouter un padding interne de 1 rem. Mettre un fond gris de nuance 900. Mettre le texte en blanc. Changer le fond en indigo de nuance 700 au survol. Arrondir la section.",
     timer: 120,
-    solution: "flex flex-col md:flex-row items-center text-left p-4 bg-gray-900 text-white rounded hover:bg-indigo-700",
+    solution:
+      "flex md:flex-col items-center text-left p-4 bg-gray-900 text-white hover:bg-indigo-700 rounded",
   },
   {
     id: 8,
     title: "Cards avec gap et padding",
     description:
-      "Affiche les éléments en flexbox, ajoute un espacement horizontal (gap) de 1rem, mets un padding de 1rem, applique un fond blanc, rends les coins arrondis, ajoute une ombre légère, et au survol applique un fond gris clair nuance 200.",
+      "Afficher les cartes en flexbox. Ajouter un gap de 1 rem entre les cartes. Ajouter un padding interne de 1 rem. Mettre un fond blanc. Arrondir les cartes. Ajouter une ombre. Changer le fond en gris de nuance 200 au survol.",
     timer: 90,
     solution: "flex gap-4 p-4 bg-white rounded shadow hover:bg-gray-200",
   },
@@ -75,15 +79,16 @@ export const exercises: Exercise[] = [
     id: 9,
     title: "Section testimonial",
     description:
-      "Crée une grille avec une seule colonne sur mobile, ajoute un espacement de 1rem, mets un padding de 1rem, applique un fond blanc, rends les coins arrondis, ajoute une ombre légère, et au survol applique un fond gris très clair nuance 100.",
+      "Utiliser une grille. Passer à une colonne sur mobile. Ajouter un gap de 1 rem entre les éléments. Ajouter un padding interne de 1 rem. Mettre un fond blanc. Arrondir la section. Ajouter une ombre. Changer le fond en gris de nuance 100 au survol.",
     timer: 90,
-    solution: "grid grid-cols-1 gap-4 p-4 bg-white rounded shadow hover:bg-gray-100",
+    solution:
+      "grid md:grid-cols-1 gap-4 p-4 bg-white rounded shadow hover:bg-gray-100",
   },
   {
     id: 10,
     title: "Mini dashboard",
     description:
-      "Affiche les éléments en flexbox, mets la largeur à 100%, ajoute un padding de 1rem, applique un fond gris clair nuance 100, rends les coins arrondis, ajoute une ombre légère, et au survol applique un fond gris nuance 200.",
+      "Afficher la structure en flexbox. Prendre toute la largeur. Ajouter un padding interne de 1 rem. Mettre un fond gris de nuance 100. Arrondir. Ajouter une ombre. Changer le fond en gris de nuance 200 au survol.",
     timer: 120,
     solution: "flex w-full p-4 bg-gray-100 rounded shadow hover:bg-gray-200",
   },
@@ -91,23 +96,25 @@ export const exercises: Exercise[] = [
     id: 11,
     title: "Footer simple",
     description:
-      "Affiche les éléments en flexbox, centre-les horizontalement et verticalement, ajoute un espacement horizontal (gap) de 1rem, mets un padding de 1rem, applique un fond gris très foncé nuance 800 et mets le texte en blanc.",
+      "Afficher les liens en flexbox. Centrer horizontalement. Centrer verticalement. Ajouter un gap de 1 rem entre les liens. Ajouter un padding interne de 1 rem. Mettre un fond gris de nuance 800. Mettre le texte en blanc.",
     timer: 90,
-    solution: "flex justify-center items-center gap-4 p-4 bg-gray-800 text-white",
+    solution:
+      "flex justify-center items-center gap-4 p-4 bg-gray-800 text-white",
   },
   {
     id: 12,
     title: "Boutons groupés",
     description:
-      "Affiche les éléments en flexbox, ajoute un espacement horizontal (gap) de 1rem, mets un padding de 0.5rem, applique un fond bleu indigo nuance 500, mets le texte en blanc, rends les coins arrondis, et au survol applique un fond bleu indigo nuance 700.",
+      "Afficher les boutons en flexbox. Ajouter un gap de 1 rem entre les boutons. Ajouter un padding interne de 0.5 rem. Mettre un fond indigo de nuance 500. Mettre le texte en blanc. Arrondir. Changer le fond en indigo de nuance 700 au survol.",
     timer: 60,
-    solution: "flex gap-4 p-2 bg-indigo-500 text-white rounded hover:bg-indigo-700",
+    solution:
+      "flex gap-4 p-2 bg-indigo-500 text-white rounded hover:bg-indigo-700",
   },
   {
     id: 13,
     title: "Liste verticale",
     description:
-      "Affiche les éléments en flexbox en colonne, ajoute un espacement vertical de 0.5rem, mets un padding de 0.5rem, applique un fond gris très clair nuance 100, rends les coins arrondis, et au survol applique un fond gris clair nuance 200.",
+      "Afficher les éléments en colonne. Ajouter un gap de 0.5 rem entre les éléments. Ajouter un padding interne de 0.5 rem. Mettre un fond gris de nuance 100. Arrondir. Changer le fond en gris de nuance 200 au survol.",
     timer: 60,
     solution: "flex flex-col gap-2 p-2 bg-gray-100 rounded hover:bg-gray-200",
   },
@@ -115,7 +122,7 @@ export const exercises: Exercise[] = [
     id: 14,
     title: "Card avec image",
     description:
-      "Affiche les éléments en flexbox en colonne, ajoute un padding de 1rem, applique un fond blanc, rends les coins arrondis, ajoute une ombre légère, et au survol applique un fond gris clair nuance 200. Place une image en haut et du texte en dessous.",
+      "Afficher les éléments en colonne. Ajouter un padding interne de 1 rem. Mettre un fond blanc. Arrondir. Ajouter une ombre. Changer le fond en gris de nuance 200 au survol.",
     timer: 90,
     solution: "flex flex-col p-4 bg-white rounded shadow hover:bg-gray-200",
   },
@@ -123,7 +130,7 @@ export const exercises: Exercise[] = [
     id: 15,
     title: "Section statistiques",
     description:
-      "Affiche les éléments en flexbox, centre-les horizontalement et verticalement, ajoute un espacement horizontal (gap) de 1rem, mets un padding de 1rem, applique un fond gris très clair nuance 50 et rends les coins arrondis.",
+      "Afficher les éléments en flexbox. Centrer horizontalement. Centrer verticalement. Ajouter un gap de 1 rem entre les statistiques. Ajouter un padding interne de 1 rem. Mettre un fond gris de nuance 50. Arrondir.",
     timer: 90,
     solution: "flex justify-center items-center gap-4 p-4 bg-gray-50 rounded",
   },
@@ -131,15 +138,16 @@ export const exercises: Exercise[] = [
     id: 16,
     title: "Card overlay",
     description:
-      "Crée une carte relative avec un padding de 1rem, applique un fond blanc, rends les coins arrondis, ajoute une ombre légère, cache le contenu débordant, et au survol applique un fond gris très clair nuance 100. Ajoute une image et un texte en overlay visible au survol.",
+      "Positionner la carte en relatif. Ajouter un padding interne de 1 rem. Mettre un fond blanc. Arrondir. Ajouter une ombre. Cacher le débordement. Changer le fond en gris de nuance 100 au survol.",
     timer: 120,
-    solution: "relative p-4 bg-white rounded shadow overflow-hidden hover:bg-gray-100",
+    solution:
+      "relative p-4 bg-white rounded shadow overflow-hidden hover:bg-gray-100",
   },
   {
     id: 17,
     title: "Grid responsive",
     description:
-      "Crée une grille de quatre colonnes, qui devient deux colonnes sur tablette et une seule colonne sur mobile, ajoute un espacement de 1rem et mets un padding de 1rem.",
+      "Utiliser une grille. Afficher quatre colonnes. Passer à deux colonnes sur tablette. Passer à une colonne sur mobile. Ajouter un gap de 1 rem entre les éléments. Ajouter un padding interne de 1 rem.",
     timer: 90,
     solution: "grid grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-4 p-4",
   },
@@ -147,7 +155,7 @@ export const exercises: Exercise[] = [
     id: 18,
     title: "Sidebar collapsible",
     description:
-      "Affiche les éléments en flexbox en colonne, ajoute un padding de 1rem, applique un fond gris très clair nuance 100, rends les coins arrondis, ajoute un espacement vertical de 0.5rem, et au survol applique un fond gris clair nuance 200. La sidebar doit pouvoir se replier.",
+      "Afficher les liens en colonne. Ajouter un padding interne de 1 rem. Mettre un fond gris de nuance 100. Arrondir. Ajouter un gap de 0.5 rem entre les liens. Changer le fond en gris de nuance 200 au survol.",
     timer: 120,
     solution: "flex flex-col p-4 bg-gray-100 rounded gap-2 hover:bg-gray-200",
   },
@@ -155,16 +163,18 @@ export const exercises: Exercise[] = [
     id: 19,
     title: "Section FAQ",
     description:
-      "Affiche les éléments en flexbox en colonne, ajoute un espacement vertical de 0.5rem, mets un padding de 1rem, applique un fond blanc, rends les coins arrondis, ajoute une ombre légère, et au survol applique un fond gris très clair nuance 100. Chaque question doit être cliquable et changer d’apparence lorsqu’elle est active.",
+      "Afficher les éléments en colonne. Ajouter un gap de 0.5 rem entre les questions. Ajouter un padding interne de 1 rem. Mettre un fond blanc. Arrondir. Ajouter une ombre. Changer le fond en gris de nuance 100 au survol.",
     timer: 120,
-    solution: "flex flex-col gap-2 p-4 bg-white rounded shadow hover:bg-gray-100",
+    solution:
+      "flex flex-col gap-2 p-4 bg-white rounded shadow hover:bg-gray-100",
   },
   {
     id: 20,
     title: "Tableau simple",
     description:
-      "Mets la largeur à 100%, ajoute un padding de 0.5rem, applique un fond blanc, au survol applique un fond gris clair nuance 200 pour chaque ligne, ajoute une bordure gris clair nuance 200, et rends les coins arrondis.",
+      "Prendre toute la largeur. Ajouter un padding interne de 0.5 rem. Mettre un fond blanc. Changer le fond en gris de nuance 200 au survol. Ajouter une bordure grise de nuance 200. Arrondir.",
     timer: 120,
-    solution: "w-full p-2 bg-white border border-gray-200 rounded hover:bg-gray-200",
+    solution:
+      "w-full p-2 bg-white hover:bg-gray-200 border border-gray-200 rounded",
   },
 ];
